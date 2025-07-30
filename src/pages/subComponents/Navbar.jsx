@@ -5,7 +5,7 @@ import { useState } from "react";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="bg-[#fc7f09] sm:bg-white flex items-center justify-between p-3  font-medium  rounded-full  mt-3 sm:shadow-[0_0_40px_-10px_#fc7f09]">
+    <div className="bg-[#fc7f09] sm:bg-white flex items-center justify-between p-3  font-medium  rounded-2xl sm:rounded-full  mt-3 sm:shadow-[0_0_40px_-10px_#fc7f09]">
       {/* LOGO*/}
 
       <Link to="/" className="logo text-[#ffffff] sm:text-[#fc7f09]">
@@ -39,7 +39,7 @@ const Navbar = () => {
 
       {/* Menu,Rate Us */}
       <div className="flex items-center gap-6">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105">
+        <button className="hidden sm:block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105">
           <Link to="/review">Rate Us</Link>
         </button>
 
@@ -97,6 +97,15 @@ const Navbar = () => {
               onClick={() => setVisible(false)}
             >
               Contact Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/review"
+              className="hover:text-[#18181b]"
+              onClick={() => setVisible(false)}
+            >
+              Rate Us
             </NavLink>
           </li>
         </ul>
