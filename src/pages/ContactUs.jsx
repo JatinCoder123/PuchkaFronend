@@ -74,7 +74,7 @@ export default function ContactUs() {
               className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-yellow-300"
             ></textarea>
             <button
-              type="submit"
+              type="button"
               className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 transition"
             >
               SEND MESSAGE NOW
