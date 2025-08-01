@@ -1,6 +1,53 @@
-// ContactUs.jsx
+import { useState } from "react";
 import Title from "./subComponents/Title";
+import { toast } from "react-toastify";
+import { sendEmail } from "../../utils/sendEmail.js";
+import { createMessage } from "../../utils/createMessage.js";
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+function isValidMessage(message) {
+  const regex = /^[\w\s.,!?'"()@:-]{10,}$/u; // Add {10,} for minimum length
+  return regex.test(message);
+}
+function isValidName(name) {
+  const regex = /^[\w\s.,!?'"()@:-]{3,}$/u; // Add {10,} for minimum length
+  return regex.test(name);
+}
+
+function sanitizeMessage(message) {
+  const div = document.createElement("div");
+  div.textContent = message;
+  return div.innerHTML;
+}
 export default function ContactUs() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  async function onSubmitHandler(e) {
+    e.preventDefault();
+
+    // {Validating Name}
+    const safeName = sanitizeMessage(name.trim());
+    if (!isValidName(name.trim()))
+      return toast.error(
+        "Name must be at least 3 characters and not contain code or special symbols."
+      );
+
+    // {Validatin Email }
+    if (!isValidEmail(email.trim()))
+      return toast.error("Please enter a valid email address.");
+
+    // {Validating Message}
+    const safeMessage = sanitizeMessage(message.trim());
+    if (!isValidMessage(message.trim()))
+      return toast.error(
+        "Message must be at least 10 characters and not contain code or special symbols."
+      );
+    const userMessage = createMessage(safeName, email, safeMessage);
+    return toast.success("Sent");
+  }
   return (
     <div>
       <div className="text-center text-2xl pt-10 ">
@@ -54,27 +101,36 @@ export default function ContactUs() {
             </div>
           </div>
           {/* Right Side: Contact Form */}
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={(e) => onSubmitHandler(e)}>
             <h2 className="text-3xl font-bold mb-10 text-center">
               Get In Touch!
             </h2>
             <input
               type="text"
               placeholder="Your name"
-              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              required
+              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
             />
             <textarea
               rows="5"
               placeholder="Write Messages..."
-              className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-#591C15"
+              value={message}
+              required
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
             <button
-              type="button"
+              type="submit"
               className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 transition"
             >
               SEND MESSAGE NOW

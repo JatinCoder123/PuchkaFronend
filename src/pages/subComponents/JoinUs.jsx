@@ -8,8 +8,8 @@ export default function JoinUs() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-6 text-left text-gray-700 max-w-4xl mx-auto">
-          <div className="p-6 rounded-xl   bg-white  border border-orange-200 shadow-[0_0_40px_-10px_rgba(255,115,0,0.4)]">
-            <h3 className="text-xl font-semibold mb-3 text-orange-500">Opportunities to Collaborate</h3>
+          <div className="p-6 rounded-xl   bg-white  border border-orange-200 shadow-[0_0_40px_-10px_#4E1C0A]">
+            <h3 className="text-xl font-semibold mb-3 text-[#FFA726]">Opportunities to Collaborate</h3>
             <ul className="list-disc list-inside space-y-1">
               <li>📍 Start your own Puchka Paradise cart (Franchise Model)</li>
               <li>💼 Become an investment partner in our growing brand</li>
@@ -18,8 +18,8 @@ export default function JoinUs() {
             </ul>
           </div>
 
-          <div className="p-6 rounded-xl border border-orange-200 bg-white  shadow-[0_0_40px_-10px_rgba(255,115,0,0.4)]">
-            <h3 className="text-xl font-semibold mb-3 text-orange-500">Why Join Us?</h3>
+          <div className="p-6 rounded-xl border border-orange-200 bg-white  shadow-[0_0_40px_-10px_#4E1C0A]">
+            <h3 className="text-xl font-semibold mb-3 text-[#FFA726]">Why Join Us?</h3>
             <ul className="list-disc list-inside space-y-1">
               <li>🌟 Rapidly growing brand with loyal customers</li>
               <li>🧠 Full support — branding, recipes, logistics</li>
@@ -32,7 +32,7 @@ export default function JoinUs() {
         <div className="mt-10">
           <p className="text-lg font-medium text-gray-800">
             📩 Interested? Let’s talk! <br />
-            Email us at <span className="text-orange-500">puchkaparadise@gmail.com</span> or call us at <span className="text-orange-500">+91 7466079671</span>
+            Email us at <span className="text-[#FFA726]">puchkaparadise@gmail.com</span> or call us at <span className="text-[#FFA726]">+91 7466079671</span>
           </p>
         </div>
       </div>

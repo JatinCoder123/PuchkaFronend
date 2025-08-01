@@ -13,15 +13,15 @@ export default function Footer() {
     <>
       {/* Footer Section */}
       <footer
-        className={`bg-white mt-24 pt-12 border-t border-gray-200 transition-opacity duration-700 ease-in-out ${
+        className={`bg-[#4E1C0A] mt-24 pt-12 border-t border-gray-200 transition-opacity duration-700 ease-in-out ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         } transform`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-gray-700">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-[#FFF8EC]">
           {/* Logo + About */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-800">
-              <span className="text-orange-500">Puchka</span>Paradise
+            <h2 className="text-3xl font-bold text-[#FFE5B4]">
+              <span className="text-[#FFA726]">Puchka</span>Paradise
             </h2>
             <p className="mt-3 text-sm leading-relaxed">
               Your one-stop street food corner for the most irresistible
@@ -31,7 +31,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Company</h3>
+            <h3 className="text-lg font-bold text-[#FDF6E3] mb-4">Company</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="hover:text-orange-500 transition">
@@ -52,10 +52,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/review"
-                  className="hover:text-orange-500 transition"
-                >
+                <Link to="/review" className="hover:text-orange-500 transition">
                   Feedback
                 </Link>
               </li>
@@ -64,7 +61,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">
+            <h3 className="text-lg font-bold text-[#FDF6E3] mb-4">
               Get in Touch
             </h3>
             <ul className="space-y-2 text-sm">
@@ -93,7 +90,7 @@ export default function Footer() {
         </div>
 
         {/* Divider & Bottom Bar */}
-        <div className="border-t mt-12 border-gray-200 py-6 text-center text-sm text-gray-500">
+        <div className="border-t mt-12 border-gray-200 py-6 text-center text-sm text-[#FFE5B4]">
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold">Puchka Paradise</span> — All Rights
           Reserved.

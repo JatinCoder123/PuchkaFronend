@@ -1,24 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import golgappe1 from "@/assets/golgappe1.jpg";
-import gol2 from "@/assets/gol2.png";
-import gol from "@/assets/gol.png";
-import golgappe2 from "@/assets/golgappe2.jpg";
+import { media } from "../../assets/assets";
 
 import Title from "./Title";
 
 export default function Gallery() {
-  const media = [
-    { type: "image", src: golgappe1 },
-    { type: "image", src: gol2 },
-    { type: "image", src: gol },
-    { type: "image", src: golgappe1 },
-    { type: "video", src: golgappe1 },
-    { type: "image", src: golgappe2 },
-    { type: "image", src: gol2 },
-    { type: "image", src: gol },
-    { type: "video", src: gol },
-  ];
-
   const [current, setCurrent] = useState(0);
   const scrollRef = useRef(null);
   const intervalRef = useRef(null);
@@ -64,7 +49,7 @@ export default function Gallery() {
                     className="w-full h-64 object-cover"
                   />
                 ) : (
-                  <img
+                  <video
                     src={item.src}
                     className="w-full h-64 object-cover"
                     muted

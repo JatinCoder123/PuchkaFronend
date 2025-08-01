@@ -13,7 +13,7 @@ const About = () => {
       <div className="my-10 flex flex-col md:flex-row gap-16">
         <div className="w-full p-8 sm:p-5 flex items-center justify-center">
           <img
-            className="max-w-[300px]  md:max-w-[350px]   rounded-full shadow-[#fc7f09] shadow-lg transition-all duration-500 hover:scale-105 "
+            className="max-w-[300px]  md:max-w-[350px]   rounded-full border-orange-200 shadow-[0_0_40px_-10px_#4E1C0A]  transition-all duration-500 hover:scale-105 "
             src="./logo.png"
             alt=""
           />
@@ -43,7 +43,7 @@ const About = () => {
       </div>
 
       <WhyChooseUs />
-      <JoinUs/>
+      <JoinUs />
     </div>
   );
 };

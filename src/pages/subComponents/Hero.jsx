@@ -16,7 +16,7 @@ const Hero = () => {
         </p>
         <a
           href="#reviews"
-          className="bg-[#fc7f09] text-[#fff] px-6 py-2 rounded-md font-semibold hover:bg-yellow-500 transition"
+          className="bg-[#FFA726] text-[#4E1C0A] px-6 py-2 rounded-md font-semibold hover:bg-yellow-500 transition"
         >
           Read Reviews
         </a>
