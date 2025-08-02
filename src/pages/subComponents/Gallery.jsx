@@ -11,7 +11,7 @@ export default function Gallery() {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % media.length);
-    }, 3000);
+    }, 7000);
     return () => clearInterval(intervalRef.current);
   }, [media.length]);
 
@@ -52,6 +52,7 @@ export default function Gallery() {
                   <video
                     src={item.src}
                     className="w-full h-64 object-cover"
+                    controls
                     muted
                     loop
                     autoPlay

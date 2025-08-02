@@ -1,52 +1,85 @@
 import { useState } from "react";
 import Title from "./subComponents/Title";
 import { toast } from "react-toastify";
-import { sendEmail } from "../../utils/sendEmail.js";
-import { createMessage } from "../../utils/createMessage.js";
+import axios from "axios";
+import LoadingButton from "../components/LoadingButton";
+import { GoogleMap } from "../components/GoogleMap";
+import { businessInfo } from "../assets/assets.js";
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
-function isValidMessage(message) {
-  const regex = /^[\w\s.,!?'"()@:-]{10,}$/u; // Add {10,} for minimum length
-  return regex.test(message);
+function validatingMessage(message) {
+  const trimmedMessage = message.trim();
+  if (trimmedMessage.length < 10)
+    return {
+      success: false,
+      res: "Message must contain at least 10 characters.",
+    };
+  const regex = /^[A-Za-z0-9 .,!?'"()\-_\n\r]+$/;
+  if (!regex.test(trimmedMessage))
+    return {
+      success: false,
+      res: "Looks like your message includes unsupported symbols. Please remove them and try again.",
+    };
+  return { success: true, trimmedMessage };
 }
-function isValidName(name) {
-  const regex = /^[\w\s.,!?'"()@:-]{3,}$/u; // Add {10,} for minimum length
-  return regex.test(name);
-}
-
-function sanitizeMessage(message) {
-  const div = document.createElement("div");
-  div.textContent = message;
-  return div.innerHTML;
+function validatingName(name) {
+  const senderName = name.trim();
+  if (senderName.length < 3)
+    return { success: false, res: "Name must contain at least 3 characters." };
+  const regex = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
+  if (!regex.test(senderName))
+    return {
+      success: false,
+      res: "Name must not contain code or special symbols.",
+    };
+  return { success: true, senderName };
 }
 export default function ContactUs() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   async function onSubmitHandler(e) {
     e.preventDefault();
+    setLoading(true);
+    const nameValidation = validatingName(name);
+    const messageValidation = validatingMessage(message);
+    if (!nameValidation.success) {
+      setLoading(false);
+      return toast.error(nameValidation.res);
+    }
+    if (!messageValidation.success) {
+      setLoading(false);
+      return toast.error(messageValidation.res);
+    }
+    if (!isValidEmail(email.trim())) {
+      setLoading(false);
+      return toast.error("Enter a valid email address!");
+    }
 
-    // {Validating Name}
-    const safeName = sanitizeMessage(name.trim());
-    if (!isValidName(name.trim()))
-      return toast.error(
-        "Name must be at least 3 characters and not contain code or special symbols."
+    const userName = nameValidation.senderName;
+    const userMessage = messageValidation.trimmedMessage;
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/v1/contact-us`,
+        { userName, email, userMessage },
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "application/json" },
+        }
       );
-
-    // {Validatin Email }
-    if (!isValidEmail(email.trim()))
-      return toast.error("Please enter a valid email address.");
-
-    // {Validating Message}
-    const safeMessage = sanitizeMessage(message.trim());
-    if (!isValidMessage(message.trim()))
-      return toast.error(
-        "Message must be at least 10 characters and not contain code or special symbols."
-      );
-    const userMessage = createMessage(safeName, email, safeMessage);
-    return toast.success("Sent");
+      setLoading(false);
+      toast.success(data.message);
+      setName("");
+      setEmail("");
+      setMessage("");
+      return;
+    } catch (error) {
+      setLoading(false);
+      return toast.error(error.response.data.message);
+    }
   }
   return (
     <div>
@@ -54,7 +87,7 @@ export default function ContactUs() {
         <Title text1={"Contact"} text2={"Us"} />
       </div>
       <div className="min-h-screen  text-stone-800 py-10 px-4 md:px-20">
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10">
           {/* Left Side: Contact Information */}
           <div className="space-y-6 bg-yellow-50 rounded-2xl p-6">
             <h3 className="text-xl font-bold">
@@ -72,7 +105,7 @@ export default function ContactUs() {
               </div>
               <div>
                 <h4 className="font-bold">Address</h4>
-                <p className="text-sm">New Delhi, India</p>
+                <p className="text-sm">{businessInfo.location}</p>
               </div>
             </div>
 
@@ -83,8 +116,8 @@ export default function ContactUs() {
               </div>
               <div>
                 <h4 className="font-bold">Contact Info</h4>
-                <p className="text-sm">Mobile: +91 7466079671</p>
-                <p className="text-sm">Email: puchkaparadise@gmail.com</p>
+                <p className="text-sm">Mobile: {businessInfo.phone}</p>
+                <p className="text-sm">Email: {businessInfo.email}</p>
               </div>
             </div>
 
@@ -95,8 +128,7 @@ export default function ContactUs() {
               </div>
               <div>
                 <h4 className="font-bold">Opening Hours</h4>
-                <p className="text-sm">Monday - Saturday: 9:00am - 6:00pm</p>
-                <p className="text-sm">Sunday: 9:00am - 8:00pm</p>
+                <p className="text-sm">Monday - Sunday: 3:00pm - 11:00pm</p>
               </div>
             </div>
           </div>
@@ -109,9 +141,17 @@ export default function ContactUs() {
               type="text"
               placeholder="Your name"
               required
+              maxLength={30}
               className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(() => {
+                  let name = e.target.value;
+                  if (name.length === 30)
+                    toast.info("Name can only have 30 character");
+                  return name;
+                });
+              }}
             />
             <input
               type="email"
@@ -126,17 +166,30 @@ export default function ContactUs() {
               placeholder="Write Messages..."
               className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-#591C15"
               value={message}
+              maxLength={300}
               required
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => {
+                setMessage(() => {
+                  let message = e.target.value;
+                  if (message.length === 300)
+                    toast.info("Message can only have 300 character");
+                  return message;
+                });
+              }}
             ></textarea>
-            <button
-              type="submit"
-              className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 transition"
-            >
-              SEND MESSAGE NOW
-            </button>
+            {loading ? (
+              <LoadingButton content={"Sending..."} />
+            ) : (
+              <button
+                type="submit"
+                className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 hover:cursor-pointer transition"
+              >
+                SEND MESSAGE NOW
+              </button>
+            )}
           </form>
         </div>
+        <GoogleMap />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import { Facebook, Instagram, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { businessInfo } from "../../assets/assets";
+import { toast } from "react-toastify";
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -66,22 +68,52 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <span className="block">📞 +91 7466079671</span>
+                <span className="block">📞 {businessInfo.phone}</span>
               </li>
               <li>
-                <span className="block">✉️ puchkaparadise@gmail.com</span>
+                <a
+                  className="block"
+                  href={`mailto:${businessInfo.email}`}
+                  onClick={() =>
+                    toast.info(
+                      `If your email app doesn't open, manually mail us!`
+                    )
+                  }
+                >
+                  ✉️ {businessInfo.email}
+                </a>
               </li>
               <li>
-                <span className="block">📍 New Delhi, India</span>
+                <span className="block ">📍 {businessInfo.location}</span>
               </li>
               <li className="mt-4 flex items-center gap-3">
-                <a href="#" className="hover:text-orange-500 transition">
-                  <Facebook />
-                </a>
-                <a href="#" className="hover:text-orange-500 transition">
+                {businessInfo.facebookUrl && (
+                  <a
+                    href={businessInfo.facebookUrl}
+                    className="hover:text-orange-500 transition"
+                    target="_blank"
+                  >
+                    <Facebook />
+                  </a>
+                )}
+
+                <a
+                  href={businessInfo.instagramUrl}
+                  className="hover:text-orange-500 transition"
+                  target="_blank"
+                >
                   <Instagram />
                 </a>
-                <a href="#" className="hover:text-orange-500 transition">
+                <a
+                  href={`mailto:${businessInfo.email}`}
+                  className="hover:text-orange-500 transition"
+                  onClick={() =>
+                    toast.info(
+                      `If your email app doesn't open, use: ${businessInfo.email}`
+                    )
+                  }
+                  title="If this doesn't work, email us manually at hello@puchkaparadise.in"
+                >
                   <Mail />
                 </a>
               </li>

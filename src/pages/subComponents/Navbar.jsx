@@ -1,5 +1,5 @@
 import { Link, Links, NavLink } from "react-router-dom";
-import { ArrowLeft, MenuSquare, Star } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -39,29 +39,18 @@ const Navbar = () => {
 
       {/* Menu,Rate Us */}
       <div className="flex items-center gap-6">
-        <button className="hidden sm:block bg-[#FFA726] hover:bg-  font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105">
-          <Link to="/review">Rate Us</Link>
-        </button>
+        <Link
+          to="/review"
+          className="hidden sm:block bg-[#FFA726] hover:bg-  font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105"
+        >
+          Rate Us
+        </Link>
 
         <div
           onClick={() => setVisible((prev) => !prev)}
           className="w-10 cursor-pointer sm:hidden text-[#FFE5B4]"
         >
-          {visible ? (
-            <img
-              width="50"
-              height="50"
-              src="https://img.icons8.com/ios/50/FFFFFF/multiply.png"
-              alt="multiply"
-            />
-          ) : (
-            <img
-              width="30"
-              height="30"
-              src="https://img.icons8.com/external-febrian-hidayat-basic-outline-febrian-hidayat/24/FFFFFF/external-menu-bar-ui-essential-febrian-hidayat-basic-outline-febrian-hidayat.png"
-              alt="menu-btn"
-            />
-          )}
+          {!visible ? <Menu size={30} /> : <X size={30} />}
         </div>
       </div>
 

@@ -1,9 +1,12 @@
-import image1 from "./image1.png";
 import image2 from "./image2.png";
 import image3 from "./image3.png";
 import image4 from "./image4.png";
 import video2 from "./video2.mp4";
+import video3 from "./video3.mp4";
 import video1 from "./video1.mp4";
+import shop1 from "./shop1.png";
+import shop2 from "./shop2.png";
+import shop3 from "./shop3.png";
 
 export const reviews = [
   {
@@ -36,14 +39,14 @@ export const reviews = [
   },
 ];
 export const media = [
-  { type: "image", src: image1 },
+  { type: "image", src: shop3 },
+  { type: "video", src: video3 },
+  { type: "image", src: shop2 },
   { type: "video", src: video2 },
-  { type: "image", src: image4 },
+  { type: "image", src: shop1 },
   { type: "video", src: video1 },
-  { type: "image", src: image2 },
-  { type: "image", src: image3 },
 ];
-export const images = [image1, image2, image3, image4];
+export const images = [image2, image3, image4];
 export const cards = [
   {
     icon: "🍜",
@@ -67,3 +70,12 @@ export const cards = [
     desc: "SWe’ve earned the love of hundreds of happy foodies who come back not just for the taste, but for the warmth and authenticity we serve.",
   },
 ];
+
+export const businessInfo = {
+  phone: "+91 9650828037",
+  email: "contact@puchkaparadise.in",
+  instagramUrl:
+    "https://www.instagram.com/puchkaparadise?igsh=MW1uNHE1eDY0cTdlYQ==",
+  location: "Chiranjiv Vihar, Shastri Nagar, Ghaziabad, Uttar Pradesh 201002",
+  facebookUrl: null,
+};
