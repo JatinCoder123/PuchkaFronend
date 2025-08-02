@@ -72,8 +72,8 @@ export const cards = [
 ];
 
 export const businessInfo = {
-  phone: "+91 9650828037",
-  email: "contact@puchkaparadise.in",
+  phone: "+91 9717991106",
+  email: "puchkaparadise@gmail.com",
   instagramUrl:
     "https://www.instagram.com/puchkaparadise?igsh=MW1uNHE1eDY0cTdlYQ==",
   location: "Chiranjiv Vihar, Shastri Nagar, Ghaziabad, Uttar Pradesh 201002",
