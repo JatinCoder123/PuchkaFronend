@@ -11,7 +11,7 @@ export default function Gallery() {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % media.length);
-    }, 7000);
+    }, 10000);
     return () => clearInterval(intervalRef.current);
   }, [media.length]);
 

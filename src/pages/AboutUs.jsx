@@ -3,6 +3,7 @@ import Title from "./subComponents/Title";
 import WhyChooseUs from "./subComponents/ChooseUs";
 import { Quote } from "lucide-react";
 import JoinUs from "./subComponents/JoinUs";
+import { businessInfo } from "../assets/assets";
 
 const About = () => {
   return (
@@ -14,7 +15,7 @@ const About = () => {
         <div className="w-full p-8 sm:p-5 flex items-center justify-center">
           <img
             className="max-w-[300px]  md:max-w-[350px]   rounded-full border-orange-200 shadow-[0_0_40px_-10px_#4E1C0A]  transition-all duration-500 hover:scale-105 "
-            src="./logo.png"
+            src={businessInfo.logo}
             alt=""
           />
         </div>

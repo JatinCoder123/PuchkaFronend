@@ -1,15 +1,22 @@
 import { Link, Links, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { businessInfo } from "../../assets/assets";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="bg-[#4E1C0A] flex items-center justify-between p-3  font-medium  rounded-2xl sm:rounded-full  mt-3 sm:shadow-[0_0_40px_-10px_#FFA726]">
+    <div className="bg-[#4E1C0A] flex items-center justify-between p-2  font-medium     sm:shadow-[0_0_40px_-10px_#FFA726]">
       {/* LOGO*/}
 
-      <Link to="/" className="logo  text-[#FFA726]">
-        Puchka<span className="text-[#FFE5B4]">Paradise</span>
+      <Link to="/" className="logo  text-[#5ED4D4] flex items-center gap-2">
+        <span>
+          <img src={businessInfo.logo} className="h-13 w-13 rounded-full " />
+        </span>
+        <span>
+          {" "}
+          Puchka<span className="text-[#FFA726]">Paradise</span>
+        </span>
       </Link>
 
       {/* Navbar */}
@@ -18,21 +25,28 @@ const Navbar = () => {
           to="/"
           className="flex flex-col font-semibold items-center gap-1 hover:text-[#FFA726] transition duration-300 ease-in-out"
         >
-          <p>HOME</p>
+          <p>Home</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-[#FDF6E3] hidden" />
         </NavLink>
         <NavLink
           to="/about"
           className="flex flex-col font-semibold items-center gap-1 hover:text-[#FFA726] transition duration-300 ease-in-out"
         >
-          <p>ABOUT</p>
+          <p>About</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-[#FDF6E3] hidden" />
+        </NavLink>
+        <NavLink
+          to="/menu"
+          className="flex flex-col font-semibold items-center gap-1 hover:text-[#FFA726] transition duration-300 ease-in-out"
+        >
+          <p>Menu</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-[#FDF6E3] hidden" />
         </NavLink>
         <NavLink
           to="/contact"
           className="flex flex-col font-semibold items-center gap-1 hover:text-[#FFA726] transition duration-300 ease-in-out"
         >
-          <p>CONTACT</p>
+          <p>Contact</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-[#FDF6E3] hidden" />
         </NavLink>
       </ul>
@@ -81,6 +95,15 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              to="/menu"
+              className="hover:text-[#18181b]"
+              onClick={() => setVisible(false)}
+            >
+              Menu
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="/contact"
               className="hover:text-[#18181b]"
               onClick={() => setVisible(false)}
@@ -88,6 +111,7 @@ const Navbar = () => {
               Contact Us
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="/review"

@@ -1,12 +1,16 @@
-import image2 from "./image2.png";
-import image3 from "./image3.png";
-import image4 from "./image4.png";
 import video2 from "./video2.mp4";
 import video3 from "./video3.mp4";
 import video1 from "./video1.mp4";
 import shop1 from "./shop1.png";
 import shop2 from "./shop2.png";
 import shop3 from "./shop3.png";
+import Logo from "./logo.png";
+import item1 from "./item1.png";
+import item2 from "./item2.png";
+import item3 from "./item3.png";
+import item4 from "./item4.png";
+import item5 from "./item5.png";
+import profile from "./userProfile.png";
 
 export const reviews = [
   {
@@ -15,6 +19,7 @@ export const reviews = [
     review:
       "Puchka Paradise brings true street flavor with amazing hygiene. Highly recommended!",
     rating: 5,
+    profile: profile,
   },
   {
     name: "RAHUL",
@@ -22,6 +27,7 @@ export const reviews = [
     review:
       "Absolutely loved the burst of flavors in every bite! It reminded me of my childhood memories. Must try for all street food lovers.",
     rating: 4,
+    profile: profile,
   },
   {
     name: "PRIYA",
@@ -29,6 +35,7 @@ export const reviews = [
     review:
       "We hired Puchka Paradise for our engagement party and guests couldn't stop talking about it. The presentation, taste, everything was top-notch!",
     rating: 4,
+    profile: profile,
   },
   {
     name: "ARJUN",
@@ -36,6 +43,7 @@ export const reviews = [
     review:
       "The spices, the tangy flavor, and the crispiness were just perfect. You can tell they put their heart into the food.",
     rating: 3,
+    profile: profile,
   },
 ];
 export const media = [
@@ -46,7 +54,39 @@ export const media = [
   { type: "image", src: shop1 },
   { type: "video", src: video1 },
 ];
-export const images = [image2, image3, image4];
+export const menuItems = [
+  {
+    name: "ATTA PUCHKA",
+    price: "20/-",
+    details: "(4PCS.)",
+    image: item1,
+  },
+  {
+    name: "SUJI PUCHKA",
+    price: "20/-",
+    details: "(4PCS.)",
+    image: item2,
+  },
+  {
+    name: "STUFFED PUCHKA",
+    price: "40/-",
+    details: "(4PCS.)",
+    image: item3,
+  },
+  {
+    name: "PAPDI CHAT",
+    price: "40/-",
+    details: "",
+    image: item4,
+  },
+  {
+    name: "PALAK PATTA CHAT",
+    price: "50/-",
+    details: "",
+    image: item5,
+  },
+];
+export const images = [item1, item2, item3, item4, item5];
 export const cards = [
   {
     icon: "🍜",
@@ -78,4 +118,5 @@ export const businessInfo = {
     "https://www.instagram.com/puchkaparadise?igsh=MW1uNHE1eDY0cTdlYQ==",
   location: "Chiranjiv Vihar, Shastri Nagar, Ghaziabad, Uttar Pradesh 201002",
   facebookUrl: null,
+  logo: Logo,
 };

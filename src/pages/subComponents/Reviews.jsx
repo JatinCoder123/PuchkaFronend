@@ -26,7 +26,7 @@ export default function Reviews() {
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 rounded-full bg-blue-100 border-4 border-white shadow-md flex items-center justify-center">
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    src={rev.profile}
                     alt="User"
                     className="w-10 h-10"
                   />

@@ -22,8 +22,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-[#FFF8EC]">
           {/* Logo + About */}
           <div>
-            <h2 className="text-3xl font-bold text-[#FFE5B4]">
-              <span className="text-[#FFA726]">Puchka</span>Paradise
+            <h2 className="text-3xl font-bold text-[#FFA726]">
+              <span className="text-[#5ED4D4]">Puchka</span>Paradise
             </h2>
             <p className="mt-3 text-sm leading-relaxed">
               Your one-stop street food corner for the most irresistible
@@ -43,6 +43,11 @@ export default function Footer() {
               <li>
                 <Link to="/about" className="hover:text-orange-500 transition">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu" className="hover:text-orange-500 transition">
+                  Menu
                 </Link>
               </li>
               <li>
