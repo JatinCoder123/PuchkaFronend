@@ -68,7 +68,7 @@ import { businessInfo, menuItems } from "../assets/assets";
 
 export default function Menu() {
   return (
-    <section className="bg-[#fdf8f3] min-h-screen py-12 px-4 md:px-10">
+    <section className="bg-[#fdf8f3] min-h-screen py-12 px-4 md:px-10 mt-20">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-center mb-10">
           <img

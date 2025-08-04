@@ -83,7 +83,7 @@ export default function ContactUs() {
   }
   return (
     <div>
-      <div className="text-center text-2xl pt-10 ">
+      <div className="text-center text-2xl pt-10 mt-20">
         <Title text1={"Contact"} text2={"Us"} />
       </div>
       <div className="min-h-screen  text-stone-800 py-10 px-4 md:px-20">

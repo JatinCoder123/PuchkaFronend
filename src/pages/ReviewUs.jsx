@@ -26,7 +26,7 @@ export default function ReviewUs() {
   };
 
   return (
-    <section className=" pt-18 pb-28 px-4 md:px-20 ">
+    <section className=" pt-18 pb-28 px-4 md:px-20 mt-20">
       <h2 className="text-3xl font-bold text-center mb-10">Leave a Review</h2>
       <div className="max-w-2xl mx-auto bg-gray-50 rounded-3xl  p-8 border border-orange-200 shadow-[0_0_30px_-8px_#FFA726]">
         <form className="space-y-6 " onSubmit={(e) => onSubmitHandler(e)}>

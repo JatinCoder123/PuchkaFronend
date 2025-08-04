@@ -8,7 +8,7 @@ import { businessInfo } from "../assets/assets";
 const About = () => {
   return (
     <div>
-      <div className="text-2xl text-center pt-10 ">
+      <div className="text-2xl text-center pt-10 mt-20">
         <Title text1={"About"} text2={"Us"} />
       </div>
       <div className="my-10 flex flex-col md:flex-row gap-16">
