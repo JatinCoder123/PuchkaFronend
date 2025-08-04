@@ -6,7 +6,7 @@ import { businessInfo } from "../../assets/assets";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   return (
-    <div className="bg-[#4E1C0A] flex items-center justify-between py-2 px-2 sm:px-4  font-medium     sm:shadow-[0_0_40px_-10px_#FFA726]">
+    <div className="fixed top-0 left-0 w-full z-[9999] bg-[#4E1C0A]  flex items-center justify-between py-2 px-2 sm:px-4  font-medium     sm:shadow-[0_0_40px_-10px_#FFA726]">
       {/* LOGO*/}
 
       <Link to="/" className="logo  text-[#5ED4D4] flex items-center gap-2">
