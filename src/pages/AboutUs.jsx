@@ -7,7 +7,7 @@ import { businessInfo } from "../assets/assets";
 
 const About = () => {
   return (
-    <div>
+    <div className="sm:px-10">
       <div className="text-2xl text-center pt-10 mt-20">
         <Title text1={"About"} text2={"Us"} />
       </div>

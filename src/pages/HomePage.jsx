@@ -6,7 +6,7 @@ import ShopStatus from "./subComponents/ShopStatus.jsx";
 
 const HomePage = ({ status }) => {
   return (
-    <div>
+    <div className="sm:px-6">
       <ShopStatus status={status} />
       <Hero />
       <Gallery />

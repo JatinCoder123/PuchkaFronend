@@ -82,7 +82,7 @@ export default function ContactUs() {
     }
   }
   return (
-    <div>
+    <div className="sm:px-8">
       <div className="text-center text-2xl pt-10 mt-20">
         <Title text1={"Contact"} text2={"Us"} />
       </div>
