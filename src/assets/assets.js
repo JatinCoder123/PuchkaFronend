@@ -48,11 +48,11 @@ export const reviews = [
 ];
 export const media = [
   { type: "image", src: shop3 },
-  { type: "video", src: video3 },
+  { type: "video", src: video1 },
   { type: "image", src: shop2 },
   { type: "video", src: video2 },
   { type: "image", src: shop1 },
-  { type: "video", src: video1 },
+  { type: "video", src: video3 },
 ];
 export const menuItems = [
   {
