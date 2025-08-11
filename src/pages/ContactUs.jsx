@@ -5,6 +5,8 @@ import axios from "axios";
 import LoadingButton from "../components/LoadingButton";
 import { GoogleMap } from "../components/GoogleMap";
 import { businessInfo } from "../assets/assets.js";
+import { FaWhatsapp } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -87,7 +89,7 @@ export default function ContactUs() {
         <Title text1={"Contact"} text2={"Us"} />
       </div>
       <div className="min-h-screen  text-stone-800 py-10 px-4 md:px-20">
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10 ">
           {/* Left Side: Contact Information */}
           <div className="space-y-6 bg-yellow-50 rounded-2xl p-6">
             <h3 className="text-xl font-bold">
@@ -133,61 +135,100 @@ export default function ContactUs() {
             </div>
           </div>
           {/* Right Side: Contact Form */}
-          <form className="space-y-6" onSubmit={(e) => onSubmitHandler(e)}>
-            <h2 className="text-3xl font-bold mb-10 text-center">
-              For Business Enquiry-
-            </h2>
-            <input
-              type="text"
-              placeholder="Your name"
-              required
-              maxLength={30}
-              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
-              value={name}
-              onChange={(e) => {
-                setName(() => {
-                  let name = e.target.value;
-                  if (name.length === 30)
-                    toast.info("Name can only have 30 character");
-                  return name;
-                });
-              }}
-            />
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
-              value={email}
-              required
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <textarea
-              rows="5"
-              placeholder="Write Messages..."
-              className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-#591C15"
-              value={message}
-              maxLength={300}
-              required
-              onChange={(e) => {
-                setMessage(() => {
-                  let message = e.target.value;
-                  if (message.length === 300)
-                    toast.info("Message can only have 300 character");
-                  return message;
-                });
-              }}
-            ></textarea>
-            {loading ? (
-              <LoadingButton content={"Sending..."} />
-            ) : (
-              <button
-                type="submit"
-                className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 hover:cursor-pointer transition"
-              >
-                SEND MESSAGE NOW
-              </button>
-            )}
-          </form>
+          <div>
+            <form className="space-y-6" onSubmit={(e) => onSubmitHandler(e)}>
+              <h2 className="text-3xl font-bold mb-10 text-center">
+                For Business Enquiry-
+              </h2>
+              <input
+                type="text"
+                placeholder="Your name"
+                required
+                maxLength={30}
+                className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
+                value={name}
+                onChange={(e) => {
+                  setName(() => {
+                    let name = e.target.value;
+                    if (name.length === 30)
+                      toast.info("Name can only have 30 character");
+                    return name;
+                  });
+                }}
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-3 bg-yellow-50 rounded-full border focus:outline-none focus:ring-2 focus:ring-#591C15"
+                value={email}
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <textarea
+                rows="5"
+                placeholder="Write Messages..."
+                className="w-full px-4 py-3 bg-yellow-50 rounded-2xl border focus:outline-none focus:ring-2 focus:ring-#591C15"
+                value={message}
+                maxLength={300}
+                required
+                onChange={(e) => {
+                  setMessage(() => {
+                    let message = e.target.value;
+                    if (message.length === 300)
+                      toast.info("Message can only have 300 character");
+                    return message;
+                  });
+                }}
+              ></textarea>
+              {loading ? (
+                <LoadingButton content={"Sending..."} />
+              ) : (
+                <button
+                  type="submit"
+                  className="bg-black text-white px-6 py-3 rounded-full hover:bg-stone-800 hover:cursor-pointer transition"
+                >
+                  SEND MESSAGE NOW
+                </button>
+              )}
+            </form>
+            {/* New section below form */}
+            <div className="mt-8 text-center">
+              <div className="flex items-center gap-4 my-8">
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-yellow-400 to-transparent" />
+                <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent font-semibold text-sm tracking-wider">
+                  OR
+                </span>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent" />
+              </div>
+
+              <div className="flex  flex-row justify-center gap-4">
+                {/* Email Us */}
+                <a
+                  href={`mailto:${businessInfo.email}`}
+                  className="flex items-center gap-2 bg-[#FFA726] hover:bg-[#ff9800] text-white py-3 px-6 rounded-full shadow-md transition-transform hover:scale-105"
+                >
+                  <MdEmail size={20} />
+                  Email Us
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href={`https://wa.me/${businessInfo.phone.replace(
+                    /[^0-9]/g,
+                    ""
+                  )}?text=${encodeURIComponent(
+                    "Hello! I have a question about your services."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-full shadow-md transition-transform hover:scale-105"
+                >
+                  <FaWhatsapp size={20} />
+                  Chat with Us
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <GoogleMap />
       </div>

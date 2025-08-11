@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const GoogleMap = () => {
   return (
-    <div className="flex flex-col items-center gap-6 mt-16">
+    <div className="flex flex-col items-center gap-6 mt-20">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

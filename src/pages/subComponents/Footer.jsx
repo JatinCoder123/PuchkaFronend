@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { businessInfo } from "../../assets/assets";
 import { toast } from "react-toastify";
+import { BsWhatsapp } from "react-icons/bs";
+import { FaWhatsapp } from "react-icons/fa";
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -120,6 +122,20 @@ export default function Footer() {
                   title="If this doesn't work, email us manually at hello@puchkaparadise.in"
                 >
                   <Mail />
+                </a>
+                <a
+                  href={`https://wa.me/${businessInfo.phone.replace(
+                    /[^0-9]/g,
+                    ""
+                  )}?text=${encodeURIComponent(
+                    "Hello! I have a question about your services."
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-500 transition"
+                  title="If this doesn't work, email us manually at hello@puchkaparadise.in"
+                >
+                  <FaWhatsapp size={26} />
                 </a>
               </li>
             </ul>
