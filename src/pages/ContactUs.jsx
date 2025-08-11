@@ -135,7 +135,7 @@ export default function ContactUs() {
           {/* Right Side: Contact Form */}
           <form className="space-y-6" onSubmit={(e) => onSubmitHandler(e)}>
             <h2 className="text-3xl font-bold mb-10 text-center">
-              Get In Touch!
+              For Business Enquiry-
             </h2>
             <input
               type="text"
