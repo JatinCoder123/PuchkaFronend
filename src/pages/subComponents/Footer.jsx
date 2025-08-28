@@ -145,8 +145,7 @@ export default function Footer() {
         {/* Divider & Bottom Bar */}
         <div className="border-t mt-12 border-gray-200 py-6 text-center text-sm text-[#FFE5B4]">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold">Puchka Paradise</span> — All Rights
-          Reserved.
+          <span className="font-semibold">Puchka Paradise | Licensed & Registered with FSSAI under FSS Act, 2006 – Reg. No. 22725699000241</span> 
         </div>
       </footer>
     </>
