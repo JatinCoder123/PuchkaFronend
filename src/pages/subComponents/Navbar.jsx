@@ -74,54 +74,47 @@ const Navbar = () => {
           visible ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col gap-4 py-4">
-          <li>
-            <NavLink
-              to="/"
-              className="hover:text-[#18181b]"
-              onClick={() => setVisible(false)}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              className="hover:text-[#18181b]"
-              onClick={() => setVisible(false)}
-            >
-              About Us
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/menu"
-              className="hover:text-[#18181b]"
-              onClick={() => setVisible(false)}
-            >
-              Menu
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/contact"
-              className="hover:text-[#18181b]"
-              onClick={() => setVisible(false)}
-            >
-              Contact Us
-            </NavLink>
-          </li>
+        <div className="flex flex-col gap-4 py-4">
+          <NavLink
+            to="/"
+            className="hover:text-[#18181b]"
+            onClick={() => setVisible(false)}
+          >
+            Home
+          </NavLink>
 
-          <li>
-            <NavLink
-              to="/review"
-              className="hover:text-[#18181b]"
-              onClick={() => setVisible(false)}
-            >
-              Rate Us
-            </NavLink>
-          </li>
-        </ul>
+          <NavLink
+            to="/about"
+            className="hover:text-[#18181b]"
+            onClick={() => setVisible(false)}
+          >
+            About Us
+          </NavLink>
+
+          <NavLink
+            to="/menu"
+            className="hover:text-[#18181b]"
+            onClick={() => setVisible(false)}
+          >
+            Menu
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className="hover:text-[#18181b]"
+            onClick={() => setVisible(false)}
+          >
+            Contact Us
+          </NavLink>
+
+          <NavLink
+            to="/review"
+            className="hover:text-[#18181b]"
+            onClick={() => setVisible(false)}
+          >
+            Rate Us
+          </NavLink>
+        </div>
       </nav>
     </div>
   );
