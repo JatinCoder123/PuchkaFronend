@@ -8,6 +8,7 @@ import Navbar from "./pages/subComponents/Navbar.jsx";
 import Footer from "./pages/subComponents/Footer.jsx";
 import { ToastContainer } from "react-toastify";
 import ChangeShopStatus from "./pages/ChangeShopStatus.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
       <Router>
         <div>
           <Navbar />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage status={status} />} />
             <Route path="/about" element={<AboutUs />} />
@@ -38,6 +40,7 @@ const App = () => {
             <Route path="/menu" element={<Menu />}></Route>
             <Route path="/shop" element={<ChangeShopStatus />}></Route>
           </Routes>
+
           <ToastContainer position="top-right" theme="dark" autoClose="3000" />
           <Footer />
         </div>
