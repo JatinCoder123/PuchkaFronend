@@ -1,13 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Puchka Paradise</title>
+
+    <!-- Basic SEO -->
+    <title>Puchka Paradise | Delicious Street Food</title>
+    <meta
+      name="description"
+      content="Delicious Puchkas and street food delights at Puchka Paradise. Fresh, tasty, and authentic chaat for everyone!"
+    />
+    <meta
+      name="keywords"
+      content="Puchka, Street Food, Snacks, Chaat, Indian Food"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Puchka Paradise" />
+    <meta
+      property="og:description"
+      content="Delicious Puchkas and street food delights at Puchka Paradise."
+    />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:url" content="https://puchkaparadise.in" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Puchka Paradise" />
+    <meta
+      name="twitter:description"
+      content="Delicious Puchkas and street food delights at Puchka Paradise."
+    />
+    <meta name="twitter:image" content="/logo.png" />
+
+    <!-- Optional: Preload main React bundle for faster loading -->
+    <link rel="preload" as="script" href="/src/main.jsx" />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- React App -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Optional: Pre-rendered content placeholder for better SEO -->
+    <!-- You can use react-snap or SSR to inject static HTML here -->
   </body>
 </html>
